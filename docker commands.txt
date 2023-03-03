@@ -1,0 +1,122 @@
+Docker
+
+https://www.youtube.com/watch?v=rr9cI4u1_88&ab_channel=HiteshChoudhary
+
+docker container id or name
+docker ps -all => shows all the running containers
+docker pull imageName => pull a docker image
+docker stop idofcontainer => stops the current container
+docker run name if a database then specify the secret key and go to docs of the container
+
+docker will not have the kernel unlike a virtual machine
+docker container prune => stops all the running containers
+docker image ls => available images
+docker container ls => all running images or containers running present
+
+# Port Mapping
+docker run --name my-mongodb -p 4000:27017 -d mongo
+docker run --name my-mongodb -p 5001:27017 -d mongo
+
+# docker logs
+docker logs my-mongodb
+
+# Mongo - express
+link a mongo db with an express application
+
+Both need to be on the same network
+docker network create mongo-network
+docker run -p 27017:27017 -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=password --name mongodb --net mongo-network -d mongo 
+docker run -p 27017:27017 -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=password --name mongodb-final --net mongo-network -d mongo
+# The above command creates a mongodb instance running at a particular port and a network 
+
+# Shows all the related networks and then can find the required network
+docker network ls
+docker run --network mongo-network -e ME_CONFIG_MONGODB_SERVER=some-mongo -p 8081:8081 mongo-express
+
+# Now at that network connect the express Application
+docker run -d \
+-p 8081:8081 \ => mongo and mongo express
+-e ME_CONFIG_MONGODB_ADMINUSERNAME=admin \ => same as mongodb
+-e ME_CONFIG_MONGODB_ADMINPASSWORD=password \
+-e ME_CONFIG_MONGODB_SERVER=mongodb-final \
+--network=mongo-network \
+--name mongo-express \
+mongo-express
+
+# Use these the above ones are not working
+docker network create mongo-network
+docker run -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password --name mongodb-final --net mongo-network -d mongo
+docker run -d -p 8081:8081 -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=password -e ME_CONFIG_MONGODB_SERVER=mongodb-final --network=mongo-network --name mongo-express mongo-express
+
+// OR
+docker network create mongo-network2
+docker run -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password --name mongodb-final2 --net mongo-network2 -d mongo
+docker run -d -p 8081:8081 -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=password -e ME_CONFIG_MONGODB_SERVER=mongodb-final2 --network=mongo-network2 --name mongo-express mongo-express
+
+# File to write all commands * all containers in dockercompose are inside the same network
+Docker compose
+create a docker-compose.yaml file
+version: '3'
+services:
+  mongodb: 
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mymongo-data:/data/db
+
+  mongo-express: 
+    image: mongo-express	
+    restart: always
+    ports:
+      - "8081:8081" 		
+    environment:
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=admin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=password	
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+volumes:
+  mymongo-data:
+    driver: local
+
+
+docker-compose -f docker-compose.yaml up
+docker-compose -f docker-compose.yaml down
+
+The Dockerfile is used to build images while the docker-compose. yaml file is used to run images.
+
+now on docker desktop open the local host
+create a database and a collection
+
+# Volumes
+To persist data
+writes volumes and give values 
+
+# Containerization of applications
+
+
+aws docker registory
+To hold your images
+
+flask application python into a docker container
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
