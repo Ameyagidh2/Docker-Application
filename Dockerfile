@@ -1,7 +1,7 @@
-FROM python:3-alpine3.15
+FROM node:slim
 WORKDIR /app
 COPY . /app
-RUN pip install -r requirements.txt
+RUN npm install 
 EXPOSE 3000
-CMD python ./index.py
-
+CMD node index.js
+    
