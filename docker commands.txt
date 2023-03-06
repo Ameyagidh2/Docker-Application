@@ -130,6 +130,53 @@ docker container stop id
 docker push ameyasantoshgidh/flask-basic:0.0.1.RELEASE
 
 
+# Node rest end point
+npm init -y
+
+npm install express (used for rest api building)
+in index.js
+var express = require('express')
+var app = express()
+
+app.get('/', function (req, res) {
+  res.send('hello world')
+})
+
+app.listen(3000)
+
+node index.js
+
+docker login (if necessary)
+
+dockerfile
+FROM node: => ctrl + space
+FROM node:slim
+WORKDIR /app
+COPY . /app
+RUN npm install 
+EXPOSE 3000
+CMD node index.js
+
+in terminal use this
+docker build -t ameyasantoshgidh/nodeexpresstest:0.0.1.RELEASE .
+docker run -d -p 3000:3000
+docker push ameyasantoshgidh/nodeexpresstest:0.0.1.RELEASE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
