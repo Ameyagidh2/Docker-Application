@@ -81,6 +81,7 @@ Node port to access outside our local host
 minimkube is an enviornment
 
 minikube start
+
 kubectl get pod
 kubectl apply -f mongo-config.yaml
 kubectl apply -f secret.yaml
