@@ -1,1 +1,80 @@
-a
+# Yaml
+https://www.youtube.com/watch?v=9BGWtTahGnw&ab_channel=HiteshChoudhary
+
+mongo and express commands like docker
+
+k8 managing and containerization of applications
+orcheestration tool
+like cloud
+controlling which cloud or containers can be up or donw
+use with microservices
+
+kubecli or minikube
+control panel => worker nodes
+config => url for our application dburl => bd in internal location
+secrets => id passwords, aws secret key etc
+
+deployment => put the application on a pod or worker nodes
+(mongo)
+service => expose the ports and allow the appliation to be accessed by the group
+
+during deployment => secrets and config are global sort of
+nodePort => for people outside to interact with your web app
+kube ctl => interact with control plane
+0 down time
+brew install kubectl
+docker environment = > minikube 
+brew install minikube
+
+yaml or json => for creating secrets file
+
+
+minimkube is an enviornment
+
+minikube start
+kubectl get pod
+kubectl apply -f mongo-config.yaml
+kubectl apply -f secret.yaml
+kubectl apply -f mongo-app.yaml
+kubectl apply -f web-app.yaml
+kubectl get pod
+kubectl get configmap
+kubectl get secret
+kubectl get svc
+minikube ip
+kubectl get node -o wide
+minikube service webapp-service
+++++++++++++++++++++++++++++++++++++++
+
+kubectl delete deployment --all
+kubectl delete secret --all
+
+# Yaml
+Serilaization language
+certain protocol standards
+django, mysql => oautho
+mongo, nodejs => analytics of the project
+
+# Networking in linux
+https://blog.learncodeonline.in/networking-in-linux
+
+# Devops
+code available to the client
+
+1) Linux=> namespaces etc
+2) Github
+3) Yaml
+4) Cloud AWS, Azure, GCP
+5) Docker
+6) Kubernates makes you cloud independent
+7) Ansible Circle CI 
+8) Terraform (Infrastructure as a code)
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+# Yaml file first
+# Key value pair
+
+courses:
+  course_name: "Django"
+  version: 1.5
+  price: &var1 199
+  is_public: true
+  release_date: 2023-09-02 12:23:22
+  pre_enrol: null
+  tags:
+      - python
+      - web developer
+      - mysql
+  course_tas: ["ta1","ta2","ta3","ta4"]
+  # many values inside the array
+  ta_details:
+            - name: "a1"
+              email: "abc"
+              role: "admin config"
+
+            - name: "a2"
+              email: "def"
+              role: "admin config2"         
+            - {name:"a3",email:"ghi",role:"developer"}
+            # Many objects and use - befpre each and every object
+
+  short_desc: >
+          here is a short descrption
+          # shored as a single line
+  long_desc: |
+          here is a short descrption
+          here is a short descrption
+          # Stored with indentation
+
+  procss_payment: *var1
+  adv: &adv
+      myKey: myval
+  another_adv:
+      one: two
+      <<: *adv
+      # copy paste the above key value stuff
+      
