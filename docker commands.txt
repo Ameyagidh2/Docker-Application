@@ -165,7 +165,35 @@ docker push ameyasantoshgidh/nodeexpresstest:0.0.1.RELEASE
 
 
 
+# Use the official Microsoft Visual C++ (MSVC) as the base image
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
+# Set the working directory
+WORKDIR /app
+
+# Copy the necessary files into the container
+COPY CPlusPlus2/ExternalDependencies /app/ExternalDependencies
+COPY CPlusPlus2/References /app/References
+COPY CPlusPlus2/HeaderFiles /app/HeaderFiles
+COPY CPlusPlus2/SourceFiles /app/SourceFiles
+COPY CPlusPlus2/delsys.txt /app/delsys.txt
+
+# Install the necessary dependencies
+RUN powershell -Command \
+    Install-PackageProvider -Name NuGet -Force ; \
+    Install-Package -Name protobuf.tools -Force ; \
+    Install-Package -Name boost -Force
+
+# Compile the program
+RUN cd /app/SourceFiles && \
+    cl.exe /EHsc CPlusPlus2.cpp /I ../HeaderFiles /link /LIBPATH:../ExternalDependencies /LIBPATH:"C:\Program Files (x86)\boost\boost_1_76_0\stage\lib" /OUT:CPlusPlus2.exe
+
+# Set the entry point
+CMD ["cmd.exe"]
+
+
+docker build -t ameyasantoshgidh/delsysprotobufbase:0.0.1.RELEASE .
+docker push ameyasantoshgidh/delsysprotobufbase:0.0.1.RELEASE
 
 
 
