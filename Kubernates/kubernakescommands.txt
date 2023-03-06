@@ -1,0 +1,129 @@
+# Yaml
+https://www.youtube.com/watch?v=9BGWtTahGnw&ab_channel=HiteshChoudhary
+
+# Kubernetes
+https://www.youtube.com/watch?v=7XDeI5fyj3w&list=PLRAV69dS1uWQKITluruJ8ciyCi9bybQ9E&index=5
+
+mongo and express commands like docker
+
+k8 managing and containerization of applications
+orcheestration tool
+like cloud
+controlling which cloud or containers can be up or donw
+use with microservices
+
+kubecli or minikube
+control panel => worker nodes
+config => url for our application dburl => bd in internal location
+secrets => id passwords, aws secret key etc
+
+deployment => put the application on a pod or worker nodes
+(mongo)
+service => expose the ports and allow the appliation to be accessed by the group
+
+during deployment => secrets and config are global sort of
+nodePort => for people outside to interact with your web app
+kube ctl => interact with control plane
+0 down time
+brew install kubectl
+docker environment = > minikube 
+brew install minikube
+
+yaml or json => for creating secrets file
+
+# Config file => non confidential all url and connection related stuff
+secret file => Stuff related to password and username
+ 
+container is the image => wrapped around with stuff to know how many replicas are possible
+
+# Kubernates has 3 parts
+1) service
+2) config
+3) secrets
+4) Deployment
+5) App.yaml
+ 
+
+# Now for yaml
+do this
+create 3 yaml files
+1) monogo-config.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+	name
+and data will have the mongodb url
+
+2) secret.yaml
+write the 
+apiVersion:v1
+kind will be secret
+metadata: includes the name and type(opaque)
+data will be a key and value pair thing
+
+3) mongo-app.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:name and labels
+instead of data we have here is the spec which includes replicas, 
+selector and matchlabels template and also specs for containers
+like name, port number and env which has a reference
+from secret.yaml and use the same key
+
+4) in the app file has 2 parts the deployment and the service
+ --- write the service file data
+username, password, port, all from the service file variables and one 
+from the config file 
+selector is where ais the main app=> webapp or mongo
+Node port to access outside our local host
+
+
+minimkube is an enviornment
+
+minikube start
+kubectl get pod
+kubectl apply -f mongo-config.yaml
+kubectl apply -f secret.yaml
+kubectl apply -f mongo-app.yaml
+kubectl apply -f web-app.yaml
+kubectl get pod
+kubectl get configmap
+kubectl get secret
+kubectl get svc
+minikube ip
+kubectl get node -o wide
+minikube service webapp-service
+++++++++++++++++++++++++++++++++++++++
+
+kubectl delete deployment --all
+kubectl delete secret --all
+
+# Yaml
+Serilaization language
+certain protocol standards
+django, mysql => oautho
+mongo, nodejs => analytics of the project
+
+# Networking in linux
+https://blog.learncodeonline.in/networking-in-linux
+
+# Devops
+code available to the client
+
+1) Linux=> namespaces etc
+2) Github
+3) Yaml
+4) Cloud AWS, Azure, GCP
+5) Docker
+6) Kubernates makes you cloud independent
+7) Ansible Circle CI 
+8) Terraform (Infrastructure as a code)
+
+
+
+
+
+
+
+
+
