@@ -102,6 +102,41 @@ To hold your images
 
 flask application python into a docker container
 
+create requirements.txt
+flask
+
+in DockerFie, do this
+FROM baseImageName
+WORKDIR /app
+copy . /app
+RUN commands like pip install -r requirements.txt
+EXPOSE 3000
+CMD python ./index.py
+
+
+run this
+should have a file called requirements.txt as the name
+docker build-t username/appnamerelease versions
+docker build -t ameyasantoshgidh/flask-basic:0.0.1.RELEASE .
+#builds a docker image
+
+# Builds a container and starts it
+docker container run -d -p 3000:3000 ameyasantoshgidh/flask-basic:0.0.1.RELEASE
+			   mymachine : container
+docker container ls
+docker container stop id
+
+# push to docker hub
+docker push ameyasantoshgidh/flask-basic:0.0.1.RELEASE
+
+
+
+
+
+
+
+
+
 
 
 
