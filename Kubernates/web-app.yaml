@@ -45,6 +45,7 @@ metadata:
   name: webapp-service
 spec:
   Selector:
+  type: NodePort
     app: webapp
   ports:
     - protocol: TCP
