@@ -191,12 +191,34 @@ RUN cd /app/SourceFiles && \
 # Set the entry point
 CMD ["cmd.exe"]
 
+listen I have the main application names CPlusPlus2, References, External dependencies HeaderFiles , Resource Files and SourceFiles folders. Addressbook.proto and delsys.txt and packages.config I want all these files to be inside a docker image
+
+
+FROM mcr.microsoft.com/windows/servercore:ltsc2022
 
 docker build -t ameyasantoshgidh/delsysprotobufbase:0.0.1.RELEASE .
 docker push ameyasantoshgidh/delsysprotobufbase:0.0.1.RELEASE
 
+docker run ameyasantoshgidh/delsysprotobufbase -d 
 
+# Use the official Microsoft Visual C++ (MSVC) as the base image
+FROM mcr.microsoft.com/windows/nanoserver:1809
 
+# Set the working directory
+WORKDIR /app
+
+# Copy the necessary files into the container
+COPY CPlusPlus2/ExternalDependencies /app/ExternalDependencies
+COPY CPlusPlus2/HeaderFiles /app/HeaderFiles
+COPY CPlusPlus2/SourceFiles /app/SourceFiles
+COPY CPlusPlus2/delsys.txt /app/delsys.txt
+
+# Compile the program
+RUN cd /app/SourceFiles && \
+    cl.exe /EHsc CPlusPlus2.cpp /I ../HeaderFiles /link /LIBPATH:../ExternalDependencies /OUT:CPlusPlus2.exe
+
+# Set the entry point
+CMD ["cmd.exe"]
 
 
 
