@@ -11,3 +11,4 @@ https://www.youtube.com/watch?v=gntyAFoZp-E&list=PL9HfA4ZKbzimKyvquT1MZ2x9d6UHjF
 https://www.youtube.com/watch?v=46O73On0gyI&ab_channel=HusseinNasser
 https://www.youtube.com/watch?v=eCCuEeF_npc&ab_channel=TechnologyCrowds
 https://www.youtube.com/watch?v=uh8XaC0Y5MA&list=PLXkn83W0QkfnqsK8I0RAz5AbUxfg3bOQ5&ab_channel=TomWeiland
+https://www.youtube.com/watch?v=MNqkBRNkHCw&list=PLTgRMOcmRb3P6SlWJ0h9HSO57tsIc0RYr&ab_channel=Packt
