@@ -12,3 +12,5 @@ https://www.youtube.com/watch?v=46O73On0gyI&ab_channel=HusseinNasser
 https://www.youtube.com/watch?v=eCCuEeF_npc&ab_channel=TechnologyCrowds
 https://www.youtube.com/watch?v=uh8XaC0Y5MA&list=PLXkn83W0QkfnqsK8I0RAz5AbUxfg3bOQ5&ab_channel=TomWeiland
 https://www.youtube.com/watch?v=MNqkBRNkHCw&list=PLTgRMOcmRb3P6SlWJ0h9HSO57tsIc0RYr&ab_channel=Packt
+https://www.youtube.com/watch?v=J_72ROVkA5Q&list=PLXLkA7FAishrnRyaFSWawwBcIoRc9EZsX&ab_channel=Hacked
+https://www.youtube.com/watch?v=PTmG0WAASHs&list=PLXLkA7FAishoPl7aCKgNUunl8SnDzyULY&ab_channel=Hacked
