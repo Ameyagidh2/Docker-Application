@@ -1,0 +1,11 @@
+FROM mcr.microsoft.com/windows/nanoserver:1809
+
+COPY . /usr/src/cpp_test
+
+WORKDIR /usr/src/cpp_test
+
+# RUN C:/MinGW/bin/g++ -std=c++11 -o Test.exe CPlusPlus2.cpp
+
+CMD ["./Test"]
+
+

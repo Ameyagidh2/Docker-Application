@@ -1,0 +1,18 @@
+﻿syntax = "proto3";
+
+message SensorData {
+  repeated ChannelData channelData = 1;
+  bool isDroppedPacket = 2;
+}
+
+message ChannelData {
+  repeated float data = 1;
+}
+
+message FrameData {
+  repeated SensorData sensorData = 1;
+}
+
+message CollectionData {
+  repeated FrameData data = 1;
+}
