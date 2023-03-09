@@ -7,6 +7,7 @@ https://www.youtube.com/watch?v=HcxlYkU8aY0&list=PL2i17lRog5pBe7t9zJdFdugQ6bxgjn
 https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
 
 ### install use above link
+create a folder called src vckpg clone it here or download the zip and install it
 
 
 ## C++ and C# networking
